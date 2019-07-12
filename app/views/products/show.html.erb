@@ -1,0 +1,76 @@
+<h2 align="center">Title: <%=@product.title%></h2>
+<div align="center">
+  <h4 class="description"><strong>Description:
+    </strong></h4>
+  <%= simple_format(@product.description)%>
+  <hr>
+  <h5 class="price"><strong>Price:
+    </strong><%="$#{@product.price}"%></h5>
+  <h5 class="created-at"><strong>
+    </strong><%=@product.created_at%></h5>
+  <div class="product-actions row">
+    <%if can? :edit, @product%>
+    <%= link_to  "Edit this product", edit_product_path(@product), class: "btn btn-xs btn-primary" %>
+    <%end%>
+    <%if can? :destroy, @product%>
+    <%= link_to 'Delete this listing', product_path(@product), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-xs btn-danger ml-2"%>
+    <%end%>
+
+
+  </div>
+</div>
+<br>
+
+<%= form_with(model: [@product, @review], local: true) do |f| %>
+<% if @review.errors.any? %>
+<ul>
+  <% @review.errors.full_messages.each do |msg|%>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<div class="form-group text-area">
+  <div class="col-sm-4">
+    <%= f.text_area :body,rows:5,class: "form-control", placeholder: "Drop a review!", autofocus: true %>
+  </div>
+
+  <div class="col-sm-2">
+    <%= f.text_field :rating, class: "form-control mt-3", placeholder: "Rate 1-5", autofocus: true %>
+  </div>
+</div>
+
+<div class="col-sm-offset-4">
+  <%= f.submit class: 'btn btn-primary create-btn' %>
+</div>
+<% end %>
+
+
+<div class="row" align="center">
+
+  <% @reviews.each do |review| %>
+  <%= 'hidden-review' if review.hidden %>
+  <div class="col-sm-4">
+    <div class="product-review">
+      <%= review.body %>
+    </div>
+    <div class="product-rating">
+      <%= "Rating: #{review.rating}"%>
+    </div>
+
+    <div>
+      <% if can? :crud, review %>
+      <%= link_to 'Delete', product_path(review), method: :delete, data: { confirm: 'Are you sure that you want to delete this review?' } %>
+      <% end %>
+      <% if can? :crud, @product %>
+      <%= link_to "#{review.hidden ? 'Show' : 'Hide' }", toggle_hidden_path(review), method: :patch %>
+      <% end %>
+    </div>
+    <div class="col-sm-offset-4 col-sm-2">
+
+    </div>
+
+    <p class="product-answer"> Answered <%= time_ago_in_words(review.created_at) %> ago </p>
+
+  </div>
+  <% end %>

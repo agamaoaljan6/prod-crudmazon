@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <%= link_to 'CRUDMazon', root_path, class:"navbar-brand", id:"logo" %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <%=link_to 'Products', products_path, class: 'nav-item nav-link'%>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Actions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%=link_to 'New Product', new_product_path, class: 'dropdown-item'%>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+
+      <% if user_signed_in? %>
+      <%=link_to 'Sign Out', session_path,method: :delete, class: 'btn btn-outline-danger my-2 my-sm-0 mr-2'%>
+      <% else %>
+      <%=link_to 'Sign Up', new_user_path, class: 'btn btn-outline-success my-2 my-sm-0 mr-2'%>
+      <%=link_to 'Sign In', new_session_path, class: 'btn btn-outline-success my-2 my-sm-0 mr-2'%>
+      <%end%>
+
+    </form>
+  </div>
+</nav>

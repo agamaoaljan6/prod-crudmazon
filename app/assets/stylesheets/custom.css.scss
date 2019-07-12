@@ -1,0 +1,153 @@
+@import "bootstrap";
+
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.amazon-header {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.sign-in {
+    margin-top: 2em;
+   
+}
+
+#logo:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+    margin-left: 5em;
+    width: 100%;
+
+}
+
+.jumbotron {
+    background-image: asset-url('chuttersnap-fyaTq-fIlro-unsplash.jpg');
+    background-size:cover;
+    height: 32em;
+    margin-left: 20px;
+
+}
+
+.jumbotron h1 {
+    color: #fff;
+    text-align:center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-top: 4em;
+}
+
+.contact-us {
+    min-height: 65vh;
+}
+
+.card {
+    margin-bottom: 2em;
+}
+
+// .btn-xlarge {
+//     font-size: 1.7em;
+//     background-color: black;
+//     justify-content: center;
+//     display: inline-block;
+// }
+
+
+// TRouBLe
+.error-message {
+    padding:auto auto auto 5em;
+    margin:auto;
+}
+
+.title-page {
+    padding-right: 6em;
+}
+
+.product-index {
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+
+.product-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.product-body {
+    padding-top: 2em;
+    padding-bottom:3em;
+}
+
+.product-actions {
+    border-top: 1px solid #eaeaea;
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+
+}
+
+.product-review {
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+.product-rating {
+    margin-left: 2.75em;
+    padding-bottom: .5em;
+}
+
+.create-btn {
+    margin-left: 1em;
+}
+
+.del-btn {
+    margin-bottom: .5em;
+}
+
+.description {
+    margin: 1em auto 1em auto;
+}
+// TRouBLe
+.price {
+    margin: 1em auto 1em auto;
+}
+
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    clear: #777;
+}
+
+footer a:hover {
+    color:#222;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul {
+    float:right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 15px;
+}
+
+.hidden-review {
+    color: #bbbbbb
+  }
